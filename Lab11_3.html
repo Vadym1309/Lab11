@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ймовірність у схемі Бернуллі</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="Lab11_1.html">Сторінка 1</a></li>
+            <li><a href="Lab11_2.html">Сторінка 2</a></li>
+            <li><a href="Lab11_3.html">Сторінка 3</a></li>
+            <li><a href="Lab11_4.html">Сторінка 4</a></li>
+        </ul>
+    </nav>
+    <script>
+        "use strict";
+        const n = parseInt(prompt("Введіть кількість випробувань (n):", ""));
+        const m = parseInt(prompt("Введіть кількість успіхів (m):", ""));
+        const p = parseFloat(prompt("Введіть ймовірність успіху (p):", ""));
+        
+        const q = 1 - p;
+        
+        function factorial(num) {
+            if (num <= 1) return 1;
+            return num * factorial(num - 1);
+        }
+    
+        function combinations(n, m) {
+            return factorial(n) / (factorial(m) * factorial(n - m));
+        }
+    
+        const probability = combinations(n, m) * Math.pow(p, m) * Math.pow(q, n - m);
+        
+        const probabilityPercentage = probability * 100;
+        
+        alert("Ймовірність отримати " + m + " успіхів із " + n + " випробувань: " + probability + 
+              "\nУ відсотках: " + probabilityPercentage.toFixed(2) + "%");
+    </script>
+</body>
+</html>

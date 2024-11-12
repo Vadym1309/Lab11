@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Динамічно сформована сторінка</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="Lab11_1.html">Сторінка 1</a></li>
+            <li><a href="Lab11_2.html">Сторінка 2</a></li>
+            <li><a href="Lab11_3.html">Сторінка 3</a></li>
+            <li><a href="Lab11_4.html">Сторінка 4</a></li>
+        </ul>
+    </nav>
+    <script>
+        "use strict";
+        // Додаємо контент на сторінку
+        document.write("Початок");
+        document.write("<h1>Заголовок</h1>");
+        document.write('<p id="dynamicText" style="text-align:center; font-size:18px; color:red;">Я люблю живчик, пиво, комп`ютерні ігри і веб-дизайн</p>');
+        document.write("<p>Кінець");
+
+        // Функція для генерації випадкового кольору
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Змінюємо колір тексту кожну секунду
+        setInterval(() => {
+            const dynamicText = document.getElementById("dynamicText");
+            dynamicText.style.color = getRandomColor();
+        }, 1000); // Інтервал у мілісекундах (1000 мс = 1 секунда)
+    </script>
+</body>
+</html>
